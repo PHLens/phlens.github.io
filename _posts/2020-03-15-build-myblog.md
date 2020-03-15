@@ -371,7 +371,7 @@ handler.on('push', function (event) {
 
 ```
 echo `date`
-cd /root/site
+cd /usr/local/lib/site
 echo start pull from github 
 git pull 你自己的仓库名
 echo start build..
@@ -408,8 +408,8 @@ services:
     ports:
       - 9091:9091
     volumes:
-      - ./site/src:/root/site
-      - ./autopull:/root
+      - ./site/src:/usr/local/lib/site
+      - ./autopull:/usr/local/lib
 ```
 
 最后将`/root`挂载到`/autopull`是为了后面接受来自`github`的请求
