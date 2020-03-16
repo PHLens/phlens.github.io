@@ -229,9 +229,7 @@ FROM phlens/jekyll:latest
 CMD bundle exec jekyll build --watch
 ```
 
-这里因为我的网站是有`Gemfile`的，所以需要用到`bundle`进行网站的构建，而官方的docker镜像是没有安装`bundle`的，所以我在官方镜像的基础上安装了`bundle`并构建了新的镜像.
-
-因为网站主题一般是不同的，如果你的网站没有用到`bundle`的话，就不必用我的镜像，直接用官方镜像就可以，然后运行命令也改为`CMD jekyll build --watch`
+这里注意每个主题的镜像不一样，不能照搬，根据主题的官方文档构建好自己的镜像
 
 主题可以在Jekyll官网或者GitHub上查看挑选
 
