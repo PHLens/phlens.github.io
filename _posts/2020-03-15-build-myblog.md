@@ -141,14 +141,9 @@ server {
     }
     location ~* /(images|css|assets) {
         index index.html;
-    }
-    location = /autopull {
-     proxy_pass http://127.0.0.1:9091/autopull;
     }	
 }
 ```
-
-最后的`location`就是用于和node js服务联动的，后面会再介绍 
 
 回到`nginx`目录，创建nginx的`Dockerfile`
 
@@ -196,7 +191,7 @@ services:
 docker-compose up --build 
 ```
 
-不过现在`nginx`挂载的目录下还没有文件，可以试着写一个`index.html` ，然后访问ip应该就能看到了。
+不过现在`nginx`挂载的目录下还没有文件，可以试着写一个`index.html` ，然后访问`ip`应该就能看到了。
 
 要停止容器，运行：
 
@@ -378,7 +373,7 @@ git pull 你自己的仓库名
 echo start build..
 ```
 
-脚本会去到`/root/site` 目录下进行代码拉取，这是`node`容器里的目录，其应挂载到宿主机的`/site/src`目录下，注意不要直接在`/app`目录下拉取代码，会报错找不到`github-webhook-handler`模块，具体原因暂时还不清楚。
+脚本会去到`/usr/local/lib/site` 目录下进行代码拉取，这是`node`容器里的目录，其应挂载到宿主机的`/site/src`目录下，注意不要直接在`/app`目录下拉取代码，会报错找不到`github-webhook-handler`模块，具体原因暂时还不清楚。
 
 所以修改`docker-compose.yml`:
 
@@ -413,7 +408,7 @@ services:
       - ./autopull:/usr/local/lib
 ```
 
-最后将`/root`挂载到`/autopull`是为了后面接受来自`github`的请求
+最后将`/usr/local/lib`挂载到`/autopull`是为了后面接受来自`github`的请求
 
 现在，到`github`上设置`webhooks`参数
 
