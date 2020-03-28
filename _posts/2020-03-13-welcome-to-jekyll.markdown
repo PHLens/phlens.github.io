@@ -1,6 +1,6 @@
 ---
 layout: single
-class: wide
+classes: wide
 title:  "Welcome to Jekyll!"
 date:   2020-03-13 03:42:00 +0000
 categories: jekyll update
