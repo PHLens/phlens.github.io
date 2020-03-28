@@ -2,7 +2,7 @@
 layout: single
 toc: true
 toc_label: "目录"
-toc_icon: "cog"
+toc_icon: "bars"
 title:	"Docker + Jekyll + Nginx 静态博客自动化部署过程总结"
 date:   2020-03-15 07:15:00 +0000
 typora-root-url: ../../blog
