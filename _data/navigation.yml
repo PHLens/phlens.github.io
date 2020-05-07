@@ -4,9 +4,9 @@ main:
     url: /year-archive/ 
   - title: "标签"
     url: /tags/
+  - title: "分类"
+    url: /categories/
   - title: "关于我"
     url: /about/
-  # - title: "Sample Collections"
-  #   url: /collection-archive/
   # - title: "Sitemap"
   #   url: /sitemap/

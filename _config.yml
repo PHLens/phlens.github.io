@@ -95,7 +95,7 @@ analytics:
 author:
   name             : "PH_Lens"
   avatar           : "/assets/IMG_0510.jpeg"# path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "What I cannot create,I cannot understand."
+  bio              : "What I cannot _**create**_,I cannot _**understand**_."
   location         : "哈尔滨工业大学(威海)"
   email            : "h1033957037@163.com"
   links:
