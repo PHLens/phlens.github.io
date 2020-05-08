@@ -1,4 +1,6 @@
 ---
+header:
+  image:/assets/IMG_0098.jpeg
 layout: single
 toc: true
 toc_label: "目录"
