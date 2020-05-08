@@ -1,7 +1,7 @@
 ---
 permalink: /about/
 title: "About"
-layout: posts
+layout: single
 last_modified_at: 2020-05-01T10:15:22-04:00
 ---
 
