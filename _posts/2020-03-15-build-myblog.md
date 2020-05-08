@@ -8,7 +8,7 @@ toc_icon: "bars"
 category: 博客搭建
 title:	"Docker + Jekyll + Nginx 静态博客自动化部署过程总结"
 date:   2020-03-15 07:15:00 +0000
-typora-root-url: ../../blog
+typora-root-url: ../assets:images
 ---
 
 在学习专业课和服务器运行环境搭建的过程中，从网络上各种博文中学到了很多东西，也慢慢意识到写博客的重要性，不仅是为了方便日后的查询和回顾，在写博客的过程中也是一种对所学知识的复现和巩固，某种程度上也是费曼学习法的一种体现。
@@ -282,7 +282,7 @@ docker-compose up --build
 
 运行成功大概是这样
 
-![image-20200315221706754](/assets/images/image-20200315221706754.png)
+![image-20200315221706754](/image-20200315221706754.png)
 
 现在访问ip应该就可以看到自己的网站了
 
@@ -416,7 +416,7 @@ services:
 
 现在，到`github`上设置`webhooks`参数
 
-![image-20200315231752150](/assets/images/image-20200315231752150.png)
+![image-20200315231752150](/image-20200315231752150.png)
 
 注意这里虽然填了一个`/autopul`作为`URL`，但实际上只作标识用，`github`会在`http`请求中带上`/autopull` ,这样deploy.js程序就能识别到，进而触发后续操作
 
