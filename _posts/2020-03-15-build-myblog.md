@@ -1,6 +1,6 @@
 ---
 header:
-  image:/assets/IMG_0098.jpeg
+  image:/assets/images/IMG_0098.jpeg
 layout: single
 toc: true
 toc_label: "目录"
@@ -282,7 +282,7 @@ docker-compose up --build
 
 运行成功大概是这样
 
-![image-20200315221706754](/assets/image-20200315221706754.png)
+![image-20200315221706754](/assets/images/image-20200315221706754.png)
 
 现在访问ip应该就可以看到自己的网站了
 
@@ -416,7 +416,7 @@ services:
 
 现在，到`github`上设置`webhooks`参数
 
-![image-20200315231752150](/assets/image-20200315231752150.png)
+![image-20200315231752150](/assets/images/image-20200315231752150.png)
 
 注意这里虽然填了一个`/autopul`作为`URL`，但实际上只作标识用，`github`会在`http`请求中带上`/autopull` ,这样deploy.js程序就能识别到，进而触发后续操作
 
