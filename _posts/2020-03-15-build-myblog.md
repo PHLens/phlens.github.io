@@ -435,3 +435,11 @@ services:
 没有绑定SSL证书时，每次域名访问博客网站浏览器总是提示不安全的站点，让人挺不爽的，因此就干脆为域名绑定了一个SSL证书，之后就可以https访问。
 
 首先进入[阿里云SSL证书控制台](https://yundunnext.console.aliyun.com/?p=casnext#/overview/cn-hangzhou) ，购买免费版的SSL证书，填写相关信息，得到SSL证书，然后参考阿里云的Nginx部署帮助，将证书下载上传到服务器，修改Nginx配置文件即可。
+
+
+
+#### 撰写博客文章的一些注意事项
+
+> - 插入图片时，要将图片复制到`assets/images/`目录下，并用相对路径`/assets/images/图片文件名`引用图片，在本地阅读时，可以设置图片根目录为`assets`的父路径
+> - Jekyll默认的时区不在国内，设置date标签时，可能会造成future time，导致无法构建，可以在`_config.yml`中设置`future:true`或者`timezone:Asia/Shanghai`
+
