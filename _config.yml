@@ -275,6 +275,7 @@ defaults:
     values:
       layout: single
       author_profile: true
+      future: true
       read_time: true
       comments:  true
       share: # true
