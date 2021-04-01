@@ -20,7 +20,7 @@ $$
 
 ​											
 
-![Sigmoid函数](/assets/images/sigmoid.png)
+<img align=center>![Sigmoid函数](/assets/images/sigmoid.png)
 
 使用逻辑回归算法预测二分类问题时，可以在输出层设置一个节点，$$P(A|x)$$用来表示某个事件A发生的概率;
 
