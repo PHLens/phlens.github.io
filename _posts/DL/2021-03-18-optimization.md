@@ -19,12 +19,16 @@ date:   2021-03-18 15:00:00 +0000
 ---
 
 ​	动量法的提出是为了解决梯度下降的上述问题。设时间步$t$的自变量为$\boldsymbol{x}_t$，学习率为$\eta_t$。在时间步$0$，动量法创建速度变量$\boldsymbol{v}_0$，并将其元素初始化成0。在时间步$t>0$，动量法对每次迭代的步骤做如下修改：
+
+
 $$
 \begin{aligned}
 \boldsymbol{v}_t &\leftarrow \gamma \boldsymbol{v}_{t-1} + \eta_t \boldsymbol{g}_t, \\
 \boldsymbol{x}_t &\leftarrow \boldsymbol{x}_{t-1} - \boldsymbol{v}_t.
 \end{aligned}
 $$
+
+
 其中，动量超参数$\gamma$满足$0 \leq \gamma < 1$。**当$\gamma=0$时，动量法等价于小批量随机梯度下降**。
 
 ##### 动量法的数学原理
@@ -33,12 +37,15 @@ $$
 
 给定超参数$0 \leq \gamma < 1$，当前时间步$t$的变量$y_t$是上一时间步$t-1$的变量$y_{t-1}$和当前时间步另一变量$x_t$的线性组合：
 
+
 $$
 y_t = \gamma y_{t-1} + (1-\gamma) x_t.
 $$
 
 
 我们可以对$y_t$展开：
+
+
 $$
 \begin{aligned}
 y_t  &= (1-\gamma) x_t + \gamma y_{t-1}\\
@@ -53,12 +60,16 @@ $$
 
 
 上式最后一步成立，由于$n \rightarrow \infty$，因此可令$n = 1/(1-\gamma)$，当$\gamma \rightarrow 1$时，$n \rightarrow \infty$，则$\gamma^n = \gamma^{1/(1-\gamma)} = \left(1-1/n\right)^n$。因为
+
+
 $$
 \lim_{n \rightarrow \infty}  \left(1-\frac{1}{n}\right)^n = \boldsymbol{e}^{-1} \approx 0.3679,
 $$
 
 
 所以当$\gamma \rightarrow 1$时，$\gamma^{1/(1-\gamma)}=\boldsymbol{e}^{-1}$，如$0.95^{20} \approx \boldsymbol{e}^{-1}$如果把$\boldsymbol{e}^{-1}$当作一个比较小的数，我们可以在近似中忽略所有含$\gamma^{1/(1-\gamma)}$和比$\gamma^{1/(1-\gamma)}$更高阶的系数的项。例如，当$\gamma=0.95$时，
+
+
 $$
 y_t \approx 0.05 \sum_{i=0}^{19} 0.95^i x_{t-i}.
 $$
@@ -67,6 +78,7 @@ $$
 因此，在实际中，我们常常将$y_t$看作是对最近$1/(1-\gamma)$个时间步的$x_t$值的加权平均。例如，当$\gamma = 0.95$时，$y_t$可以被看作对最近20个时间步的$x_t$值的加权平均；当$\gamma = 0.9$时，$y_t$可以看作是对最近10个时间步的$x_t$值的加权平均。而且，离当前时间步$t$越近的$x_t$值获得的权重越大（越接近1）。
 
 现在，对动量法的速度变量做变形：
+
 
 $$
 \boldsymbol{v}_t \leftarrow \gamma \boldsymbol{v}_{t-1} + (1 - \gamma) \left(\frac{\eta_t}{1 - \gamma} \boldsymbol{g}_t\right).
@@ -90,12 +102,15 @@ $$
 
 AdaGrad算法使用一个小批量随机梯度$\boldsymbol{g}_t$按元素平方的累加变量$\boldsymbol{s}_t$。在时间步0，AdaGrad将$\boldsymbol{s}_0$中每个元素初始化为0。在时间步$t$，首先将小批量随机梯度$\boldsymbol{g}_t$按元素平方后累加到变量$\boldsymbol{s}_t$：
 
+
 $$
 \boldsymbol{s}_t \leftarrow \boldsymbol{s}_{t-1} + \boldsymbol{g}_t \odot \boldsymbol{g}_t,
 $$
 
 
 其中$\odot$是**按元素相乘**。接着，我们将目标函数自变量中每个元素的学习率通过按元素运算重新调整一下：
+
+
 $$
 \boldsymbol{x}_t \leftarrow \boldsymbol{x}_{t-1} - \frac{\eta}{\sqrt{\boldsymbol{s}_t + \epsilon}} \odot \boldsymbol{g}_t,
 $$
@@ -118,7 +133,8 @@ $$
 
 AdaGrad算法在迭代后期由于学习率过小，可能较难找到一个有用的解。为了解决这一问题，RMSProp算法对AdaGrad算法做了一点小小的修改。
 
-不同于AdaGrad算法里状态变量$\boldsymbol{s}_t$是截至时间步$t$所有小批量随机梯度$\boldsymbol{g}_t$按元素平方和，RMSProp算法将这些梯度按元素平方做指数加权移动平均。具体来说，给定超参数$0 \leq \gamma < 1$，RMSProp算法在时间步$t>0$计算
+不同于AdaGrad算法里状态变量$\boldsymbol{s}_t$是截至时间步$t$所有小批量随机梯度$\boldsymbol{g}_t$按元素平方和，RMSProp算法将这些梯度按元素平方做指数加权移动平均。具体来说，给定超参数$0 \leq \gamma < 1$，RMSProp算法在时间步$t>0$计算:
+
 
 $$
 \boldsymbol{s}_t \leftarrow \gamma \boldsymbol{s}_{t-1} + (1 - \gamma) \boldsymbol{g}_t \odot \boldsymbol{g}_t.
@@ -126,6 +142,8 @@ $$
 
 
 和AdaGrad算法一样，RMSProp算法将目标函数自变量中每个元素的学习率通过按元素运算重新调整，然后更新自变量
+
+
 $$
 \boldsymbol{x}_t \leftarrow \boldsymbol{x}_{t-1} - \frac{\eta}{\sqrt{\boldsymbol{s}_t + \epsilon}} \odot \boldsymbol{g}_t,
 $$
@@ -145,24 +163,31 @@ $$
 
 AdaDelta算法也像RMSProp算法一样，使用了小批量随机梯度$\boldsymbol{g}_t$按元素平方的指数加权移动平均变量$\boldsymbol{s}_t$。在时间步0，它的所有元素被初始化为0。给定超参数$0 \leq \rho < 1$（对应RMSProp算法中的$\gamma$），在时间步$t>0$，同RMSProp算法一样计算
 
+
 $$
 \boldsymbol{s}_t \leftarrow \rho \boldsymbol{s}_{t-1} + (1 - \rho) \boldsymbol{g}_t \odot \boldsymbol{g}_t.
 $$
 
 
 与RMSProp算法不同的是，AdaDelta算法还维护一个额外的状态变量 $\Delta\boldsymbol{x}_t$ ，其元素同样在时间步0时被初始化为0。我们使用 $\Delta\boldsymbol{x}_{t-1}$ 来计算自变量的变化量：
+
+
 $$
 \boldsymbol{g}_t' \leftarrow \sqrt{\frac{\Delta\boldsymbol{x}_{t-1} + \epsilon}{\boldsymbol{s}_t + \epsilon}}   \odot \boldsymbol{g}_t,
 $$
 
 
 其中$\epsilon$是为了维持数值稳定性而添加的常数，如$10^{-5}$。接着更新自变量：
+
+
 $$
 \boldsymbol{x}_t \leftarrow \boldsymbol{x}_{t-1} - \boldsymbol{g}'_t.
 $$
 
 
 最后，使用$\Delta\boldsymbol{x}_t$来记录自变量变化量$\boldsymbol{g}'_t$按元素平方的指数加权移动平均：
+
+
 $$
 \Delta\boldsymbol{x}_t \leftarrow \rho \Delta\boldsymbol{x}_{t-1} + (1 - \rho) \boldsymbol{g}'_t \odot \boldsymbol{g}'_t.
 $$
@@ -179,6 +204,8 @@ $$
 Adam算法在RMSProp算法基础上对小批量随机梯度也做了指数加权移动平均。
 
 Adam算法使用了动量变量$\boldsymbol{v}_t$和RMSProp算法中小批量随机梯度按元素平方的指数加权移动平均变量$\boldsymbol{s}_t$，并在时间步0将它们中每个元素初始化为0。给定超参数$0 \leq \beta_1 < 1$（算法作者建议设为0.9），时间步$t$的动量变量$\boldsymbol{v}_t$即小批量随机梯度$\boldsymbol{g}_t$的指数加权移动平均：
+
+
 $$
 \boldsymbol{v}_t \leftarrow \beta_1 \boldsymbol{v}_{t-1} + (1 - \beta_1) \boldsymbol{g}_t.
 $$
@@ -186,12 +213,16 @@ $$
 
 和RMSProp算法中一样，给定超参数$0 \leq \beta_2 < 1$（算法作者建议设为0.999），
 将小批量随机梯度按元素平方后的项$\boldsymbol{g}_t \odot \boldsymbol{g}_t$做指数加权移动平均得到$\boldsymbol{s}_t$：
+
+
 $$
 \boldsymbol{s}_t \leftarrow \beta_2 \boldsymbol{s}_{t-1} + (1 - \beta_2) \boldsymbol{g}_t \odot \boldsymbol{g}_t.
 $$
 
 
 由于我们将 $\boldsymbol{v}_0$ 和 $\boldsymbol{s}_0$ 中的元素都初始化为0，在时间步$t$我们得到 $\boldsymbol{v}_t =  (1-\beta_1) \sum_{i=1}^t \beta_1^{t-i} \boldsymbol{g}_i$ 。将过去各时间步小批量随机梯度的权值相加，得到 $(1-\beta_1) \sum_{i=1}^t \beta_1^{t-i} = 1 - \beta_1^t$ 。需要注意的是，当$t$较小时，过去各时间步小批量随机梯度权值之和会较小。例如，当 $\beta_1 = 0.9$ 时，$\boldsymbol{v}_1 = 0.1\boldsymbol{g}_1$ 。为了消除这样的影响，对于任意时间步$t$，我们可以将 $\boldsymbol{v}_t$ 再除以 $1 - \beta_1^t$ ，从而使过去各时间步小批量随机梯度权值之和为1。这也叫作偏差修正。在Adam算法中，我们对变量 $\boldsymbol{v}_t$ 和 $\boldsymbol{s}_t$ 均作偏差修正：
+
+
 $$
 \hat{\boldsymbol{v}}_t \leftarrow \frac{\boldsymbol{v}_t}{1 - \beta_1^t},
 $$
@@ -200,16 +231,24 @@ $$
 \hat{\boldsymbol{s}}_t \leftarrow \frac{\boldsymbol{s}_t}{1 - \beta_2^t}.
 $$
 
+
+
 接下来，Adam算法使用以上偏差修正后的变量$\hat{\boldsymbol{v}}_t$和$\hat{\boldsymbol{s}}_t$，将模型参数中每个元素的学习率通过按元素运算重新调整：
+
+
 $$
 \boldsymbol{g}_t' \leftarrow \frac{\eta \hat{\boldsymbol{v}}_t}{\sqrt{\hat{\boldsymbol{s}}_t} + \epsilon},
 $$
 
 
 其中$\eta$是学习率，$\epsilon$是为了维持数值稳定性而添加的常数，如$10^{-8}$。和AdaGrad算法、RMSProp算法以及AdaDelta算法一样，目标函数自变量中每个元素都分别拥有自己的学习率。最后，使用$\boldsymbol{g}_t'$迭代自变量：
+
+
 $$
 \boldsymbol{x}_t \leftarrow \boldsymbol{x}_{t-1} - \boldsymbol{g}_t'. 
 $$
+
+
 
 > - Adam算法在RMSProp算法的基础上对小批量随机梯度也做了指数加权移动平均。
 > - Adam算法使用了偏差修正。
