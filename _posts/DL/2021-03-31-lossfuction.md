@@ -5,7 +5,7 @@ toc: true
 toc_label: "目录"
 toc_icon: "bars"
 category: 深度学习基础
-date: 2021-03-32 10:00+0000
+date: 2021-03-31 10:00+0000
 typora-root-url: ..\assets\images
 ---
 
