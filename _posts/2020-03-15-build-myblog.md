@@ -437,6 +437,17 @@ services:
 首先进入[阿里云SSL证书控制台](https://yundunnext.console.aliyun.com/?p=casnext#/overview/cn-hangzhou) ，购买免费版的SSL证书，填写相关信息，得到SSL证书，然后参考阿里云的Nginx部署帮助，将证书下载上传到服务器，修改Nginx配置文件即可。
 
 
+#### Github Pages配置
+要在github pages上显示博客主题，需要修改一下配置参数，修改Gemfile，添加如下配置
+```
+source "https://rubygems.org"
+
+gem "github-pages", group: :jekyll_plugins
+gem "jekyll-include-cache", group: :jekyll_plugins
+```
+
+在`_config.yaml`文件中添加：`remote_theme: "mmistakes/minimal-mistakes@4.24.0"`，注释`theme`字段
+
 
 #### 撰写博客文章的一些注意事项
 
