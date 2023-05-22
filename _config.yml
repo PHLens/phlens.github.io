@@ -16,7 +16,7 @@ minimal_mistakes_skin    : "air"  #"air", "aqua", "contrast", "dark", "dirt", "n
 
 # Site Settings
 locale                   : "zh-CN"
-title                    : "个人博客"
+title                    : "PHLens"
 title_separator          : "-"
 subtitle                 : # site tagline that appears below site title in masthead
 name                     : "PH_Lens"
@@ -98,7 +98,7 @@ author:
   avatar           : "/assets/images/IMG_0510.jpeg"# path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "What I cannot _**create**_,I cannot _**understand**_."
   location         : "哈尔滨工业大学"
-  email            : "h1033957037@163.com"
+  email            : "1033957037@qq.com"
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
