@@ -1,6 +1,6 @@
 ---
 layout: single
-title: 2023-05-22-linux-fonts
+title: linux 字体安装
 toc: true
 toc_label: "目录"
 toc_icon: "bars"
