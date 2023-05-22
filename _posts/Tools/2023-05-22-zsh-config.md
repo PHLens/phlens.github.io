@@ -27,7 +27,7 @@ date: 2023-05-22-2005
 - 插件手动拷贝到`.xxh/.xxh/plugins/xxh-plugin-zsh-ohmyzsh/build/ohmyzsh/plugins`
  
 ## 字体
-参考[Linux 字体安装](./2023-05-22-linux-fonts.md)
+参考[Linux 字体安装](../linux-fonts/)
 
 终端设置，选择字体即可正确显示 powerline 图标
 
