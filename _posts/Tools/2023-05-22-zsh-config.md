@@ -5,7 +5,7 @@ toc: true
 toc_label: "目录"
 toc_icon: "bars"
 category: Tools
-tags: #essay/2023
+tags: essay/2023
 date: 2023-05-22-2005
 ---
 首先安装 zsh ：
@@ -27,7 +27,7 @@ date: 2023-05-22-2005
 - 插件手动拷贝到`.xxh/.xxh/plugins/xxh-plugin-zsh-ohmyzsh/build/ohmyzsh/plugins`
  
 ## 字体
-参考[Linux 字体安装](../linux-fonts/)
+参考[Linux 字体安装](./2023-05-22-linux-fonts.md)
 
 终端设置，选择字体即可正确显示 powerline 图标
 
@@ -42,5 +42,8 @@ cp MyTmux/.tmux.conf.local .
 快捷键
 - 删除panel：`<prefix> + x`
 - 删除 window：`<prefix> + &` 
+- swap panes：`<prefix> + o`
+Plugins:
+- [resurrect]( https://github.com/tmux-plugins/tmux-resurrect ) for save and restore. (file saved in `~/.local/share/tmux/resurrect`)
 
 Reference:  [oh-my-tmux](https://github.com/gpakosz/.tmux)
