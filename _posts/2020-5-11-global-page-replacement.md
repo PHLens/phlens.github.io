@@ -3,6 +3,7 @@ title: "OS-页面置换算法（2）"
 category: os
 date: 2020-05-11 10:00+0000
 ---
+系列文章：[OS-页面置换算法（1）](/os/local-page-replacement/)
 
 ### 全局页面置换算法
 
