@@ -5,7 +5,6 @@ toc: true
 toc_label: "目录"
 toc_icon: "bars"
 category: Tools
-tags: essay/2023
 date: 2023-05-22-2005
 ---
 首先安装 zsh ：

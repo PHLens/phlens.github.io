@@ -1,6 +1,6 @@
 ---
 title: "OS-页面置换算法（1）"
-category: os
+category: OS
 date: 2020-05-10 17:50+0000
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: "OS-页面置换算法（2）"
-category: os
+category: OS
 date: 2020-05-11 10:00+0000
 ---
 系列文章：[OS-页面置换算法（1）](/os/local-page-replacement/)

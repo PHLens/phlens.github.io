@@ -3,7 +3,7 @@ layout: single
 toc: true
 toc_label: "目录"
 toc_icon: "bars"
-category: 深度学习
+category: Deep Learning
 title:	"优化算法"
 date:   2021-03-18 15:00:00 +0000
 ---

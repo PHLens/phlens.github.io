@@ -1,7 +1,7 @@
 ---
 title: "OS-处理机调度"
 date: 2020-05-12 12:00+0000
-category: 操作系统
+category: OS
 ---
 
 ### CPU资源的时分复用

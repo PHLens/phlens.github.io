@@ -4,6 +4,7 @@ title: "SoftMax和CrossEntropy"
 toc: true
 toc_label: "目录"
 toc_icon: "bars"
+category: Deep Learning
 date: 2021-03-31 10:00+0000
 typora-root-url: ../../../blog
 ---
