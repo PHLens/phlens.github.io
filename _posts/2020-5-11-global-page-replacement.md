@@ -1,8 +1,7 @@
 ---
 title: "OS-页面置换算法（2）"
-category: 操作系统
+category: os
 date: 2020-05-11 10:00+0000
-typora-root-url: ../../../blog
 ---
 
 ### 全局页面置换算法
