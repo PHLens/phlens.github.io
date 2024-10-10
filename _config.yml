@@ -11,8 +11,8 @@
 # https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/#installing-the-theme
 
 # theme                  : "minimal-mistakes-jekyll"
-remote_theme           : "mmistakes/minimal-mistakes@4.24.0"
-minimal_mistakes_skin    : "air"  #"air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
+remote_theme           : "mmistakes/minimal-mistakes@4.26.2"
+minimal_mistakes_skin    : "dark"  #"air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
 # Site Settings
 locale                   : "zh-CN"
@@ -20,8 +20,8 @@ title                    : "PHLens"
 title_separator          : "-"
 subtitle                 : # site tagline that appears below site title in masthead
 name                     : "PH_Lens"
-description              : "An amazing website."
-url                      : # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
+description              : "A personal website."
+url                      : "https://phlens.github.io" # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
@@ -95,7 +95,7 @@ analytics:
 # Site Author
 author:
   name             : "PH_Lens"
-  avatar           : "/assets/images/IMG_0510.jpeg"# path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+  avatar           : "/assets/images/IMG_0510.jpeg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "What I cannot _**create**_,I cannot _**understand**_."
   location         : "哈尔滨工业大学"
   email            : "1033957037@qq.com"
@@ -161,6 +161,7 @@ exclude:
   - CHANGELOG
   - config
   - Gemfile
+  - Gemfile.lock
   - Gruntfile.js
   - gulpfile.js
   - LICENSE
@@ -220,6 +221,8 @@ plugins:
   - jekyll-gist
   - jekyll-feed
   - jekyll-include-cache
+  - jemoji
+  - jekyll-algolia
 
 # mimic GitHub Pages with --safe
 whitelist:
@@ -228,6 +231,8 @@ whitelist:
   - jekyll-gist
   - jekyll-feed
   - jekyll-include-cache
+  - jemoji
+  - jekyll-algolia
 
 
 # Archives
